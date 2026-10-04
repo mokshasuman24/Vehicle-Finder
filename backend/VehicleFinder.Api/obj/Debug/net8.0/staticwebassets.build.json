@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "oFtpzhwyeRBNhrBDdL+k9mizxAxwS/l1wITKkTP8dvQ=",
+  "Source": "VehicleFinder.Api",
+  "BasePath": "_content/VehicleFinder.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,71 @@
+VEHICLE NUMBER SEARCH
+=====================
+
+Query:
+
+EXPLAIN
+SELECT
+    id,
+    vehicle_no,
+    model
+FROM vehicle_records
+WHERE vehicle_last4 = '4821';
+
+
+EXPLAIN RESULT:
+
+type: ref
+possible_keys: idx_vehicle_last4
+key: idx_vehicle_last4
+key_len: 19
+ref: const
+rows: 5
+filtered: 100.00
+
+vehicle_no  model           id      vehicle_last4
+MH12AB4821	Mahindra XUV300	4822	4821
+MH12AB4821	Hyundai Creta	14822	4821
+MH12AB4821	Toyota Glanza	24822	4821
+MH12AB4821	Mahindra XUV300	34822	4821
+MH12AB4821	Hyundai Creta	44822	4821
+			
+
+CHASSIS SEARCH
+==============
+
+Query:
+
+EXPLAIN
+SELECT
+    id,
+    vehicle_no,
+    chassis_no,
+    model
+FROM vehicle_records
+WHERE chassis_last5 = '12345';
+
+
+EXPLAIN RESULT:
+
+The query should use:
+idx_chassis_last5
+
+1	SIMPLE	vehicle_records		ref	idx_chassis_last5	idx_chassis_last5	23	const	1	100.00	
+
+
+## Database Setup
+
+1. Create the database schema:
+
+   Run db/schema.sql
+
+2. Generate seed data:
+
+   Run db/seed.sql
+
+3. Verify:
+
+   SELECT COUNT(*) FROM vehicle_records;
+
+Expected:
+50000
